@@ -28,8 +28,7 @@
       font-size: 13px;
     }
 
-    #checkBtn {
-      margin-top: 10px;
+    #checkBtn, #checkUrlBtn {
       padding: 6px 12px;
       background-color: #3a3a3a;
       color: #ffffff;
@@ -38,7 +37,35 @@
       cursor: pointer;
       font-weight: bold;
     }
-    #checkBtn:hover { background:#505050; }
+    #checkBtn { margin-top: 10px; width: 100%; }
+    #checkBtn:hover, #checkUrlBtn:hover { background:#505050; }
+    #checkUrlBtn:disabled { opacity: 0.6; cursor: default; }
+
+    .divider {
+      margin-top: 14px;
+      margin-bottom: 6px;
+      font-size: 12px;
+      color: #999;
+      text-align: center;
+    }
+
+    #pasteRow {
+      display: flex;
+      gap: 6px;
+    }
+
+    #urlInput {
+      flex: 1;
+      min-width: 0;
+      padding: 6px 8px;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background: #2c2c2c;
+      color: #ffffff;
+      font-size: 13px;
+      box-sizing: border-box;
+    }
+    #urlInput:focus { outline: 1px solid #7aa7ff; }
   </style>
 </head>
 <body>
@@ -57,7 +84,13 @@
 
   <button id="checkBtn">Check This Page</button>
 
-  <pre id="result">Click the button to check the URL...</pre>
+  <div class="divider">or paste a URL to check without opening it</div>
+  <div id="pasteRow">
+    <input type="text" id="urlInput" placeholder="https://example.com">
+    <button id="checkUrlBtn">Check</button>
+  </div>
+
+  <pre id="result">Click a button to check a URL...</pre>
 
   <script src="popup.js"></script>
 </body>
